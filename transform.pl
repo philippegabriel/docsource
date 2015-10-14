@@ -6,7 +6,7 @@ $input =~ s/<div class="navheader">.+?<\/div>//smg;
 #Remove Footers
 $input =~ s/<div class="navfooter">.*?<\/div>//smg;
 #Remove Images from tables:
-$input =~ s/<div class="mediaobject">.*?<\/div>//smg;
+$input =~ s/<div class="mediaobject".*?<\/div>//smg;
 #Change ALL <code class> to <samp class="phcodeph">
 $input =~ s/<code class="literal">(.*?)<\/code>/<samp class="ph codeph">\1<\/samp>/smg;
 #Remove <span class="emphasis"> & Change <em> to <i>
