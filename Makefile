@@ -1,9 +1,14 @@
 #!/usr/bin/make
-.PHONY: test
+.PHONY: test clean mkdir
 targets=$(addprefix out/, $(shell ls *.html))
-all: $(targets)
+all: mkdir $(targets)
+
+mkdir:
+	@echo -n creating output dir...
+	mkdir -p out/
 
 out/%.html: %.html
+	@echo -n Processing $<...
 	./transform.pl $< > $@
 clean:
 	rm -rf $(targets)
