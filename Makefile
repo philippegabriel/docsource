@@ -17,3 +17,4 @@ test:
 	grep '<pre class="screen">' out/*.html || true
 	grep '<em class="replaceable">' out/*.html || true
 	grep '<span class="command">' out/*.html || true
+	grep '<div class="itemizedlist">' out/*.html || true
