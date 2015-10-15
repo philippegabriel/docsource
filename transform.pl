@@ -19,6 +19,13 @@ $input =~ s/<pre class="screen">(.*?)<\/pre>/<pre class="pre codeblock">\1<\/pre
 $input =~ s/<em class="replaceable">(.*?)<\/em>/<i>\1<\/i>/smg;
 #Change <span class="command"> to <b> & Remove <strong>
 $input =~ s/<span class="command"><strong>(.*?)<\/strong><\/span>/<b>\1<\/b>/smg;
-#output result
+#Change <div class="itemizedlist"> to <div class ="show bullets">
+while($input =~ m/(<div class="itemizedlist">)(.*?)(<\/div>)/ms){
+	$subst = $2;
+#Change <ul type="disc"> to <ul class="ul">
+	$subst =~ s/<ul type="disc">/<ul class="ul">/msg;
+#Change <li> to <li class=”li”>
+	$subst =~ s/<li>/<li class="li">/msg;
+	$input =~ s/<div class="itemizedlist">.*?<\/div>/<div class ="show bullets">$subst<\/div>/ms;}
 print $input;
 exit 0;
